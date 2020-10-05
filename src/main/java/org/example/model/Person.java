@@ -7,6 +7,8 @@ public class Person {
     private String firstName;
     private String lastName;
 
+    //private Todo[] todos;
+
     // The constructor method
 
 
@@ -14,6 +16,9 @@ public class Person {
         this.personId = personId;
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public static void findById(int i) {
     }
 
     //  Getters and Setters
