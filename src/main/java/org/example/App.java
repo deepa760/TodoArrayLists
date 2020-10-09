@@ -31,14 +31,14 @@ public class App
         while(true) {
             //solution like trello:
             System.out.println(" Welcome, there x task done, y task...");
-            System.out.println("press 1) show , 2) add 3)edit 4)save 5) add user");
+            System.out.println("press 1) show , 2) add 3)edit 4)Remove");
             int x = Integer.parseInt(scanner.nextLine());
 
             switch (x) {
                 case 1:
                     //show
-                    System.out.println("1 sort by date, 2 filter by project, 3 filter by user" +
-                            ", 4 show unassigned, ... ");
+                    //System.out.println("1 sort by date, 2 filter by project, 3 filter by user" +
+                        //    ", 4 show unassigned, ... ");
                     showMenu();
                     break;
 
@@ -60,6 +60,22 @@ public class App
                     }
 
                     break;
+                //To check if task is done or not!!
+                case 3:
+
+                    System.out.println("Check if the task is done or not!!");
+                    break;
+                //To delete the task!!
+                case  4:
+                    break;
+
+                case 5:
+                    //sort by date
+
+
+                    break;
+
+
             }
         }
 
