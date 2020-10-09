@@ -1,42 +1,41 @@
 package org.example.data;
 
 import org.example.model.Person;
-import java.util.Arrays;
 
+import java.util.ArrayList;
 
 public class People {
 
-    private static Person[] persons = new Person[0];
+    private ArrayList<Person> peopleList = new ArrayList<>();
 
-    public static int size() {
-        return persons.length;
+    public int size() {
+        return peopleList.size();
     }
 
-    public static Person[] findAll() {
-        return persons;
+    public ArrayList<Person> findAll() {
+        return peopleList;
     }
 
-    public static Person findById(int personId){
+    public  Person findById(int personId)
+    {
         for (int i = 0; i < size(); i++){
-            if (persons[i].getPersonId() == personId)
-                return persons[i];
+            if (peopleList.get(i).getPersonId() == personId)
+                return peopleList.get(i);
         }
         return null;
     }
 
-    public static Person newPerson (String fname, String lname){
+    public Person addPerson(String fname, String lname){
         Person person = new Person(PersonSequencer.getNextPersonId(), fname, lname);
-        persons = incressPersonSize(persons);
-        persons[size()-1] = person;
-        return persons[size()-1];
+        peopleList.add(person);
+        return person;
     }
 
-    public static Person[] incressPersonSize(Person[] person) {
-        return Arrays.copyOf(person, size() + 1);
+    public  void clear(){
+        peopleList = new ArrayList<>();
+        PersonSequencer.reset();
     }
 
 
-    public static void clear(){
-        persons = new Person[0];
-    }
+
 }

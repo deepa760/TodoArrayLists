@@ -4,6 +4,7 @@ package org.example;
 import org.example.data.People;
 import org.example.data.TodoItems;
 import org.example.model.Person;
+import org.example.model.Todo;
 
 import java.util.Scanner;
 
@@ -13,74 +14,70 @@ import java.util.Scanner;
 3- think about how you want to connect preson with Todo
 */
 
-public class App {
-    public static void main( String[] args )
+public class App
+{
+    private People people = new People();
+    private TodoItems taskList = new TodoItems();
+    private Scanner scanner = new Scanner(System.in);
+
+    public People getPeopleList(){return people;}
+    public TodoItems getTaskList(){return taskList;}
+
+    public void run( )
     {
-        Person person = new Person(1235, "hema", "g");
-        person.setFirstName("hema");
-        person.getPersonId();
-        System.out.println("personId");
-        Person.findById(1);
+        people.addPerson("hema", "gg");
+        people.addPerson("deepa", "rr");
 
-        //Nour:
+        while(true) {
+            //solution like trello:
+            System.out.println(" Welcome, there x task done, y task...");
+            System.out.println("press 1) show , 2) add 3)edit 4)save 5) add user");
+            int x = Integer.parseInt(scanner.nextLine());
 
-        //Sign in process:
-        Scanner scanner = new Scanner(System.in);
-        //check the users file if the file is empty do:
-        System.out.println("there is no regerstered ueser in this todo");
-        System.out.println("write your name");
-        String firstname = scanner.nextLine();
-        String second = scanner.nextLine();
+            switch (x) {
+                case 1:
+                    //show
+                    System.out.println("1 sort by date, 2 filter by project, 3 filter by user" +
+                            ", 4 show unassigned, ... ");
+                    showMenu();
+                    break;
 
-        People p = new People();
-        p.newPerson(firstname, second);
+                case 2:
+                    System.out.println("type the title");
+                    String desc = scanner.nextLine();
+                    System.out.println("type the date");
+                    String date = scanner.nextLine();
+                    System.out.println("Do you want to assign a specific user to it, type his id");
+                    String userId = scanner.nextLine();
 
+                    Todo task = taskList.addTask(desc, date);
+                    if (userId.equals(""))
+                        System.out.println("No user will be added ");
 
-        //another solution trello:
-        System.out.println(" Welcome, there x task done, y task...");
-        System.out.println("press 1) show , 2) add 3)edit 4)save 5) add user");
-        TodoItems itemList = new TodoItems();
-        int x = Integer.parseInt(scanner.nextLine());
+                    else {
+                        Person user = people.findById(Integer.parseInt(userId));
+                        taskList.assign(task, user);
+                    }
 
-        switch (x)
-        {
-            case 1:
-                //show
-                System.out.println("1 sort by date, 2 filter by project, 3 filter by user" +
-                        ", 4 show unassigned, ... ");
-
-
-
-            case 2:
-                System.out.println("type the title");
-                String desc = scanner.nextLine();
-                //int id = itemList.newTodo(desc);
-                System.out.println("Do you want to assign a specific user to it");
-                String user = scanner.nextLine();
-                if (user.equals(""))
-                {
-                    System.out.println("No user will be added ");
-                    /*do nothing itemList.newTodo(desc); */
-                }
-                else
-                {
-                    //itemList.newTodo(desc, user);
-                    //itemList.assign(id, user);
-                }
+                    break;
+            }
         }
-
-
-
 
 
 
     }
 
+    private void showMenu()
+    {
+        System.out.println(people.findAll());
+        System.out.println(taskList.findAll());
+    }
 
 
-
-
-
+    public static void main(String[] args) {
+        App app = new App();
+        app.run();
+    }
 
 
 
