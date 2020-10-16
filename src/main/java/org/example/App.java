@@ -30,9 +30,7 @@ public class App
             //solution like trello:
             System.out.println(" Welcome, there x task done, y task...");
             System.out.println("Press 1) Display the list ,2) Add the tasks 3)Modify the Task 4)Remove the task 5)Sort by date  6)Display the task DONE 7)Quit") ;
-
             int x = Integer.parseInt(scanner.nextLine());
-
             switch (x) {
                 case 1:
                     //show or display the list in the Menu.

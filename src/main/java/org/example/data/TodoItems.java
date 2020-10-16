@@ -79,6 +79,7 @@ First:you need to find the correct array index of the object.
 Second: You need to rebuild array by excludingthe object on found index*/
     public ArrayList<Todo> removeItem(int todoId)
     {
+
         ArrayList<Todo> t = new ArrayList<>();
         for (int i = 0; i < size(); i++){
             if (todoId == todos.get(i).getTodoId()){
