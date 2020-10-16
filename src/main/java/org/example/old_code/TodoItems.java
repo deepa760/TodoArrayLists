@@ -26,7 +26,7 @@ public class TodoItems {
     }
 
     public static Todo newTodo (String des, String date){
-        Todo todo= new Todo(TodoSequencer.getNextTodoId(), des, date);
+        Todo todo= new Todo(TodoSequencer.getNextTodoId(), des, null);
         todos = incressTodoSize(todos);
         todos[size()-1] = todo;
         return todos[size()-1];

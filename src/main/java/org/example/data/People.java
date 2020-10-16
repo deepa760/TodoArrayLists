@@ -34,7 +34,9 @@ public class People {
     public  void clear(){
         peopleList = new ArrayList<>();
         PersonSequencer.reset();
+
     }
+
 
 
 

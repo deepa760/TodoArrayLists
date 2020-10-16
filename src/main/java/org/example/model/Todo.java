@@ -1,19 +1,25 @@
 package org.example.model;
+import java.time.*;
 
 public class Todo {
+    public Todo(int todoId, String description, LocalDate date) {
+        this.todoId = todoId;
+        this.description = description;
+        this.date = date;
+        this.done = false;
+
+    }
+
     //fields
     private final int todoId;
     private String description;
-    private String date; //TODO change this to localdate
+    private  LocalDate date; //TODO change this to localdate
     private Boolean done;
     Person assignee;
 
-    // The constructor method
-    public Todo (int todoId, String description, String date) {
-        this.todoId = todoId;
-        this.description = description;  //TODO add assign date
-        assignee = null;
-    }
+
+
+
 
     //Getters & Setters
     public int getTodoId() {
@@ -42,8 +48,13 @@ public class Todo {
         this.assignee = assignee;
     }
 
+
+    public LocalDate getDate() { return date; }
+
+
+
     public String toString()
     {
-        return todoId + " " + description + " " + assignee;
+        return todoId + " " + description + " " + assignee +" "+date;
     }
 }

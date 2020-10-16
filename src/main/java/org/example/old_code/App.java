@@ -71,7 +71,7 @@ public class App
                 System.out.println("Do you want to assign a specific user to it");
                 String user = scanner.nextLine();
 
-                itemList.addTask(desc, date);
+                itemList.addTask(desc, null);
                 if (user.equals(""))
                 {
                     System.out.println("No user will be added ");
@@ -79,7 +79,7 @@ public class App
                 }
                 else
                 {
-                    itemList.addTask(desc, date);
+                    itemList.addTask(desc, null);
                     //itemList.newTodo(desc, user);
                     //itemList.assign(id, user);
                 }

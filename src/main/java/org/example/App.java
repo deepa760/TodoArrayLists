@@ -6,13 +6,11 @@ import org.example.data.TodoItems;
 import org.example.model.Person;
 import org.example.model.Todo;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-/*Nour comments:
-1- add date to the Todo
-2- covert array to arraylist to skip change size thing
-3- think about how you want to connect preson with Todo
-*/
+
 
 public class App
 {
@@ -25,32 +23,34 @@ public class App
 
     public void run( )
     {
-        people.addPerson("hema", "gg");
-        people.addPerson("deepa", "rr");
-
+        people.addPerson("hema", "Gana");
+        people.addPerson("deepa", "Newname");
+        people.addPerson("Anagha", "Newname1");
+        people.addPerson("deepa", "Newname3");
         while(true) {
             //solution like trello:
             System.out.println(" Welcome, there x task done, y task...");
-            System.out.println("press 1) show , 2) add 3)edit 4)Remove");
+            System.out.println("press 1) Display the list , 2) Add the tasks 3)Modify the Task 4)Remove 5)Sort by date");
             int x = Integer.parseInt(scanner.nextLine());
 
             switch (x) {
                 case 1:
                     //show
-                    //System.out.println("1 sort by date, 2 filter by project, 3 filter by user" +
-                        //    ", 4 show unassigned, ... ");
+
+                    taskList.sortByDate();
                     showMenu();
                     break;
 
                 case 2:
                     System.out.println("type the title");
                     String desc = scanner.nextLine();
-                    System.out.println("type the date");
+                    System.out.println("type the date in a format yyyy-MM-dd");
                     String date = scanner.nextLine();
+                    DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate ld = LocalDate.parse(date, format);
                     System.out.println("Do you want to assign a specific user to it, type his id");
                     String userId = scanner.nextLine();
-
-                    Todo task = taskList.addTask(desc, date);
+                    Todo task = taskList.addTask(desc, ld);
                     if (userId.equals(""))
                         System.out.println("No user will be added ");
 
@@ -58,22 +58,29 @@ public class App
                         Person user = people.findById(Integer.parseInt(userId));
                         taskList.assign(task, user);
                     }
-
                     break;
-                //To check if task is done or not!!
-                case 3:
-
-                    System.out.println("Check if the task is done or not!!");
+                //To check if the task is done ensure its completed.
+                case  3:
+                    System.out.println("Check and MOdify the task!!");
                     break;
-                //To delete the task!!
+
                 case  4:
+                    System.out.println("Remove the task,Specify its name");
+                    String userId1 = scanner.nextLine();
+                    Todo task3 = taskList.addTask(desc, ld);
+                    taskList.removeItem();
+                    showMenu();
                     break;
-
                 case 5:
-                    //sort by date
-
-
+                    System.out.println("Sort the task by Date");
+                    taskList.sortByDate();
+                    showMenu();
                     break;
+
+
+
+
+
 
 
             }
