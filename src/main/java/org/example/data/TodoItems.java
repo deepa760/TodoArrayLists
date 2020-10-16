@@ -6,6 +6,7 @@ import java.time.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Scanner;
 
 public class TodoItems {
     private ArrayList<Todo> todos = new ArrayList<>();
@@ -15,6 +16,7 @@ public class TodoItems {
     public ArrayList<Todo> findAll() {
         return todos;
     }
+
     public Todo findById(int todoId){
         for (int i = 0; i < size(); i++){
             if (todos.get(i).getTodoId() == todoId)
@@ -22,6 +24,8 @@ public class TodoItems {
         }
         return null;
     }
+
+    /************************************Adding the tasks**************************************/
     public Todo addTask(String des, LocalDate date){
         Todo todo= new Todo(TodoSequencer.getNextTodoId(), des, date);
         todos.add(todo);
@@ -30,6 +34,8 @@ public class TodoItems {
     public void clear(){
         todos = new ArrayList<>();
     }
+
+    /*****************************To check by Done status********************/
     public ArrayList<Todo> findByDoneStatus(boolean doneStatus)
     {
         ArrayList<Todo> statusArray = new ArrayList<>();
@@ -52,6 +58,8 @@ public class TodoItems {
         }
         return t;
     }
+
+    /*****************************To check unassigned To-do Items********************************/
     public ArrayList<Todo> findUnassignedTodoItems()
     {
         ArrayList<Todo> t = new ArrayList<>();
@@ -63,6 +71,7 @@ public class TodoItems {
         }
         return t;
     }
+    /******************************Sorting by date*********************************/
     public ArrayList<Todo> sortByDate()
     {
         //you can use streams to sort also
@@ -74,30 +83,42 @@ public class TodoItems {
         });
         return todos;
     }
+    /*******************To remove the task id******************************/
 /*a.Functionality to remove object from array.(not nulling)
 First:you need to find the correct array index of the object.
 Second: You need to rebuild array by excludingthe object on found index*/
-    public ArrayList<Todo> removeItem(int todoId)
+    public void  removeItem(int todoId)
     {
-
         ArrayList<Todo> t = new ArrayList<>();
-        for (int i = 0; i < size(); i++){
-            if (todoId == todos.get(i).getTodoId()){
-                todos.remove(i);
-            }
-        }
-        return todos;
-    }
-    public void assign(Todo task, Person user)
-    {
-        for (Todo t : todos)
+         if(t.isEmpty())
+         {
+         System.out.println("LIst is empty,Please add task");
+         }
+         else
+             {
+                 System.out.println("Please select task id");
+                  Scanner sc=new Scanner(System.in);
+                  int deltasknum=sc.nextInt();
+                  for (int i = 0; i < t.size(); i++)
         {
-            if (task.equals(t)) //TODO implements equals method inside the todo class
-            {
-                t.setAssignee(user);
-            }
+                  Todo removetask=t.remove(deltasknum);
+
         }
     }
+
+    }
+
+    /*********************************To assign the task to a person****************************/
+        public void assign(Todo task, Person user)
+        {
+            for (Todo t : todos)
+            {
+                if (task.equals(t)) //TODO implements equals method inside the todo class
+                {
+                    t.setAssignee(user);
+                }
+            }
+        }
     public Todo removeItem() {
         return null;
     }
