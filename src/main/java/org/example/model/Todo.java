@@ -46,4 +46,7 @@ public class Todo {
     {
         return todoId + " " + description + " " + assignee +" "+date;
     }
+
+    public boolean isDone() {
+    }
 }
