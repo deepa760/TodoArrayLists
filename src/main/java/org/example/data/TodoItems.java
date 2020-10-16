@@ -6,7 +6,6 @@ import org.example.model.Todo;
 import java.time.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -96,8 +95,9 @@ public class TodoItems {
 
     public ArrayList<Todo> removeItem(int todoId)
     {
+        ArrayList<Todo> t = new ArrayList<>();
         for (int i = 0; i < size(); i++){
-            if (todoId != todos.get(i).getTodoId()){
+            if (todoId == todos.get(i).getTodoId()){
                 todos.remove(i);
             }
         }
@@ -117,6 +117,7 @@ public class TodoItems {
         }
     }
 
-    public void removeItem() {
+    public Todo removeItem() {
+        return null;
     }
 }

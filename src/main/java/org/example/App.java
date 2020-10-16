@@ -5,7 +5,6 @@ import org.example.data.People;
 import org.example.data.TodoItems;
 import org.example.model.Person;
 import org.example.model.Todo;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -26,11 +25,12 @@ public class App
         people.addPerson("hema", "Gana");
         people.addPerson("deepa", "Newname");
         people.addPerson("Anagha", "Newname1");
-        people.addPerson("deepa", "Newname3");
+        people.addPerson("kitty", "Newname3");
         while(true) {
             //solution like trello:
             System.out.println(" Welcome, there x task done, y task...");
-            System.out.println("press 1) Display the list , 2) Add the tasks 3)Modify the Task 4)Remove 5)Sort by date");
+            System.out.println("Press 1) Display the list ,2) Add the tasks 3)Modify the Task 4)Remove the task 5)Sort by date 6)Quit 7)Display the task DONE") ;
+
             int x = Integer.parseInt(scanner.nextLine());
 
             switch (x) {
@@ -67,7 +67,7 @@ public class App
                 case  4:
                     System.out.println("Remove the task,Specify its name");
                     String userId1 = scanner.nextLine();
-                    Todo task3 = taskList.addTask(desc, ld);
+                    Todo taskremove = taskList.removeItem();
                     taskList.removeItem();
                     showMenu();
                     break;
