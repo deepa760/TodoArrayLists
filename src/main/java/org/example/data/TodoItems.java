@@ -27,6 +27,7 @@ public class TodoItems {
 
     /************************************Adding the tasks**************************************/
     public Todo addTask(String des, LocalDate date){
+
         Todo todo= new Todo(TodoSequencer.getNextTodoId(), des, date);
         todos.add(todo);
         return todo;

@@ -41,7 +41,8 @@ public class App
             switch (x) {
                 case 1:
                     //show or display the list in the Menu.
-                    taskList.sortByDate();
+
+
                     System.out.println("**********************The displayed list is ****************");
                     showMenu();
                     break;
@@ -83,7 +84,7 @@ public class App
                        break;
                 case 7: System.out.println("We are coming out of the App!!!!!!!!!!!!Recheck once............");
                         quitTask();
-                         break;
+                        break;
             }
         }
     }
