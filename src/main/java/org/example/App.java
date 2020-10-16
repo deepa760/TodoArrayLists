@@ -74,6 +74,10 @@ public class App
                     taskList.sortByDate();
                     showMenu();
                     break;
+                case 6:System.out.println("Display TASKS done");
+                       break;
+                case 7:
+                       break;
             }
         }
     }
