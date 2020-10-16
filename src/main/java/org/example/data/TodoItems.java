@@ -1,26 +1,20 @@
 package org.example.data;
 
-
 import org.example.model.Person;
 import org.example.model.Todo;
 import java.time.*;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-
 public class TodoItems {
     private ArrayList<Todo> todos = new ArrayList<>();
-
     public int size() {
         return todos.size();
     }
-
     public ArrayList<Todo> findAll() {
         return todos;
     }
-
     public Todo findById(int todoId){
         for (int i = 0; i < size(); i++){
             if (todos.get(i).getTodoId() == todoId)
@@ -28,18 +22,14 @@ public class TodoItems {
         }
         return null;
     }
-
     public Todo addTask(String des, LocalDate date){
         Todo todo= new Todo(TodoSequencer.getNextTodoId(), des, date);
         todos.add(todo);
         return todo;
     }
-
-
     public void clear(){
         todos = new ArrayList<>();
     }
-
     public ArrayList<Todo> findByDoneStatus(boolean doneStatus)
     {
         ArrayList<Todo> statusArray = new ArrayList<>();
@@ -50,14 +40,10 @@ public class TodoItems {
         }
         return statusArray;
     }
-
-
-
     //TODO overridde the equals method inside the person class
     public ArrayList<Todo> findByAssignee(Person user)
     {
         ArrayList<Todo> t = new ArrayList<>();
-
         for (int i = 0; i < size(); i++){
             if (todos.get(i).getAssignee().equals(user))
             {
@@ -66,7 +52,6 @@ public class TodoItems {
         }
         return t;
     }
-
     public ArrayList<Todo> findUnassignedTodoItems()
     {
         ArrayList<Todo> t = new ArrayList<>();
@@ -78,8 +63,6 @@ public class TodoItems {
         }
         return t;
     }
-
-
     public ArrayList<Todo> sortByDate()
     {
         //you can use streams to sort also
@@ -91,8 +74,9 @@ public class TodoItems {
         });
         return todos;
     }
-
-
+/*a.Functionality to remove object from array.(not nulling)
+First:you need to find the correct array index of the object.
+Second: You need to rebuild array by excludingthe object on found index*/
     public ArrayList<Todo> removeItem(int todoId)
     {
         ArrayList<Todo> t = new ArrayList<>();
@@ -103,9 +87,6 @@ public class TodoItems {
         }
         return todos;
     }
-
-
-
     public void assign(Todo task, Person user)
     {
         for (Todo t : todos)
@@ -116,7 +97,6 @@ public class TodoItems {
             }
         }
     }
-
     public Todo removeItem() {
         return null;
     }

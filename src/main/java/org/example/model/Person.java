@@ -5,16 +5,14 @@ package org.example.model;
  a.Required fields are personId(int and final), firstNameand lastName(String)
  b.Make a constructor that can build the object.
  c.Create needed getters and setters.
- d.Unit test with Junit.  e.Commitchanges*/
-
+ d.Unit test with Junit.
+  e.Commitchanges*/
 
 public class Person {
-
     //fields
     private final int personId;
     private String firstName;
     private String lastName;
-
     // The constructor method
     public Person(int personId, String firstName, String lastName) {
         this.personId = personId;

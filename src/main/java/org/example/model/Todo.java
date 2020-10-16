@@ -12,7 +12,6 @@ public class Todo {
         this.description = description;
         this.date = date;
         this.done = false;
-
     }
     //fields
     private final int todoId;

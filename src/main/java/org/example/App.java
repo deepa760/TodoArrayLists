@@ -29,18 +29,16 @@ public class App
         while(true) {
             //solution like trello:
             System.out.println(" Welcome, there x task done, y task...");
-            System.out.println("Press 1) Display the list ,2) Add the tasks 3)Modify the Task 4)Remove the task 5)Sort by date 6)Quit 7)Display the task DONE") ;
+            System.out.println("Press 1) Display the list ,2) Add the tasks 3)Modify the Task 4)Remove the task 5)Sort by date  6)Display the task DONE 7)Quit") ;
 
             int x = Integer.parseInt(scanner.nextLine());
 
             switch (x) {
                 case 1:
-                    //show
-
+                    //show or display the list in the Menu.
                     taskList.sortByDate();
                     showMenu();
                     break;
-
                 case 2:
                     System.out.println("type the title");
                     String desc = scanner.nextLine();
@@ -76,27 +74,14 @@ public class App
                     taskList.sortByDate();
                     showMenu();
                     break;
-
-
-
-
-
-
-
             }
         }
-
-
-
     }
-
     private void showMenu()
     {
         System.out.println(people.findAll());
         System.out.println(taskList.findAll());
     }
-
-
     public static void main(String[] args) {
         App app = new App();
         app.run();
