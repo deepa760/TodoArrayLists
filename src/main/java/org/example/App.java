@@ -65,7 +65,7 @@ public class App
                 case  4:
                     System.out.println("Remove the task,Specify its name");
                     String userId1 = scanner.nextLine();
-                    Todo taskremove = taskList.removeItem();
+                    Todo taskremove = taskList.removeItem( );
                     taskList.removeItem();
                     showMenu();
                     break;
