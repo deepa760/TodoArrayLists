@@ -6,7 +6,7 @@ package org.example.model;
  b.Make a constructor that can build the object.
  c.Create needed getters and setters.
  d.Unit test with Junit.
-  e.Commitchanges*/
+ e.Commitchanges*/
 
 public class Person {
     //fields
