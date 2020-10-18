@@ -124,15 +124,16 @@ Second: You need to rebuild array by excludingthe object on found index*/
     public ArrayList<Todo> updateTask(int todoId)
     {
     ArrayList <Integer> Int =new ArrayList<Integer>();
-             System.out.println("Total number present " + todos.size());// first show the all the reocrds before edit
+              //Show all the records before editing.............
+             System.out.println("Total number present " + todos.size());
              for (int i = 0,j=1; i < todos.size(); i++)
              System.out.println(todos.get(i));
-             System.out.println("enter task id to update");// user can choose the task  by index no
+             System.out.println("enter task id to update");
               Scanner index =new Scanner(System.in);
                int num=index.nextInt();
                for(int i=0;i<todos.size();i++)
                {
-              /* if ( num == todos.get(i))
+             /* if ( num == todos.get(i))
                {
                System.out.println(num+" is  PRESENT at Index "+i);
     }*/
