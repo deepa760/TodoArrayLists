@@ -70,7 +70,9 @@ public class App
                     * 1. ask the user which task/todo he want to update
                     *  2. what to update exactly (user, date, status)
                     * */
-
+                   System.out.println("Enter the id which you want to update");
+                    String userId2 = scanner.nextLine();
+                   taskList.updateTask(Integer.parseInt(userId2));
                     showMenu();
                     break;
 
