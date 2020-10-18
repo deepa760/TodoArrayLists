@@ -7,6 +7,7 @@ import org.example.model.Person;
 import org.example.model.Todo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -26,7 +27,7 @@ public class App
         people.addPerson("Anagha", "Newname1");
         people.addPerson("kitty", "Newname3");
         while(true) {
-            //solution like trello:
+
                      System.out.println("*************************************************");
                      System.out.println(" Welcome, there  x task done, y task...");
                      System.out.println("*************************************************");
@@ -41,8 +42,6 @@ public class App
             switch (x) {
                 case 1:
                     //show or display the list in the Menu.
-
-
                     System.out.println("**********************The displayed list is ****************");
                     showMenu();
                     break;
@@ -67,13 +66,19 @@ public class App
                 /********************To check if the task is done ensure its completed.**********************/
                 case  3:
                     System.out.println("Check and MOdify the task!!!!!!!!!!!!!!!!!!!!!!!");
+                    /*
+                    * 1. ask the user which task/todo he want to update
+                    *  2. what to update exactly (user, date, status)
+                    * */
+
+                    showMenu();
                     break;
 
                 case  4:
-                    System.out.println("Remove the task,Specify its name.....................");
+                    System.out.println("Remove the task,Specify its id.....................");
                     String userId1 = scanner.nextLine();
-                    Todo taskremove = taskList.removeItem( );
-                    taskList.removeItem();
+                    taskList.removeItem( Integer.parseInt(userId1));
+                    //taskList.removeItem();
                     break;
                 case 5:
                     System.out.println("Sort the task by Date....................");
@@ -81,6 +86,9 @@ public class App
                     showMenu();
                     break;
                 case 6:System.out.println("Display Tasks which are  done....................");
+                    ArrayList<Todo> doneTasks = taskList.findByDoneStatus(true);
+                    System.out.println(doneTasks);
+                    showMenu();
                        break;
                 case 7: System.out.println("We are coming out of the App!!!!!!!!!!!!Recheck once............");
                         quitTask();

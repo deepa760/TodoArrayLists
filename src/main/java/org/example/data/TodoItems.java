@@ -42,7 +42,7 @@ public class TodoItems {
     {
         ArrayList<Todo> statusArray = new ArrayList<>();
         for (int i = 0; i < size(); i++){
-            if (todos.get(i).getDone() == true) {
+            if (todos.get(i).getDone() == doneStatus) {
                 statusArray.add(todos.get(i) );
             }
         }
@@ -91,21 +91,19 @@ First:you need to find the correct array index of the object.
 Second: You need to rebuild array by excludingthe object on found index*/
     public void  removeItem(int todoId)
     {
-        ArrayList<Todo> t = new ArrayList<>();
-         if(t.isEmpty())
+         if(todos.isEmpty())
          {
          System.out.println("LIst is empty,Please add task");
          }
          else
              {
-                 System.out.println("Please select task id");
-                  Scanner sc=new Scanner(System.in);
-                  int deltasknum=sc.nextInt();
-                  for (int i = 0; i < t.size(); i++)
-        {
-                  Todo removetask=t.remove(deltasknum);
-
-        }
+                 //System.out.println("Please select task id");
+                  //Scanner sc=new Scanner(System.in);
+                  //int deltasknum=sc.nextInt();
+                  //for (int i = 0; i < t.size(); i++)
+                    //{
+                  Todo removetask=todos.remove(todoId-1);
+                  //}
     }
 
     }
@@ -121,7 +119,27 @@ Second: You need to rebuild array by excludingthe object on found index*/
                 }
             }
         }
-    public Todo removeItem() {
-        return null;
+
+
+    public ArrayList<Todo> updateTask()
+    {
+    ArrayList <Integer> Int =new ArrayList<Integer>();
+             System.out.println("Total no in ToTo List are " + todos.size());// first show the all the reocrds before edit
+             for (int i = 0,j=1; i < todos.size(); i++)
+             System.out.println(todos.get(i));
+             System.out.println("enter Project task no to update");// user can choose the task  by index no
+              Scanner index =new Scanner(System.in);
+               int num=index.nextInt();
+               for(int i=0;i<todos.size();i++)
+               {
+              /* if ( num == todos.get(i))
+               {
+               System.out.println(num+" is  PRESENT at Index "+i);
+    }*/
+               if(todos.lastIndexOf(num)==-1)
+               System.out.println(num+" is NOT PRESENT");
+              }
+        return todos;
     }
+
 }
