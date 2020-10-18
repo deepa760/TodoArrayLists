@@ -1,23 +1,19 @@
 package org.example.data;
 
-
 import org.example.model.Person;
 import org.example.model.Todo;
 import java.time.*;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-
+import java.util.Scanner;
 
 public class TodoItems {
+    //private static ArrayList<Todo> todos;
     private ArrayList<Todo> todos = new ArrayList<>();
-
     public int size() {
         return todos.size();
     }
-
     public ArrayList<Todo> findAll() {
         return todos;
     }
@@ -30,35 +26,32 @@ public class TodoItems {
         return null;
     }
 
+    /************************************Adding the tasks**************************************/
     public Todo addTask(String des, LocalDate date){
+
         Todo todo= new Todo(TodoSequencer.getNextTodoId(), des, date);
         todos.add(todo);
         return todo;
     }
-
-
-    public void clear(){
+   /* public static void clear(){
         todos = new ArrayList<>();
-    }
+    }*/
 
+    /*****************************To check by Done status********************/
     public ArrayList<Todo> findByDoneStatus(boolean doneStatus)
     {
         ArrayList<Todo> statusArray = new ArrayList<>();
         for (int i = 0; i < size(); i++){
-            if (todos.get(i).getDone() == true) {
+            if (todos.get(i).getDone() == doneStatus) {
                 statusArray.add(todos.get(i) );
             }
         }
         return statusArray;
     }
-
-
-
     //TODO overridde the equals method inside the person class
     public ArrayList<Todo> findByAssignee(Person user)
     {
         ArrayList<Todo> t = new ArrayList<>();
-
         for (int i = 0; i < size(); i++){
             if (todos.get(i).getAssignee().equals(user))
             {
@@ -68,6 +61,7 @@ public class TodoItems {
         return t;
     }
 
+    /*****************************To check unassigned To-do Items********************************/
     public ArrayList<Todo> findUnassignedTodoItems()
     {
         ArrayList<Todo> t = new ArrayList<>();
@@ -79,8 +73,7 @@ public class TodoItems {
         }
         return t;
     }
-
-
+    /******************************Sorting by date*********************************/
     public ArrayList<Todo> sortByDate()
     {
         //you can use streams to sort also
@@ -93,30 +86,42 @@ public class TodoItems {
         return todos;
     }
 
-
-    public ArrayList<Todo> removeItem(int todoId)
+    /*******************To remove the task id******************************/
+/*a.Functionality to remove object from array.(not nulling)
+First:you need to find the correct array index of the object.
+Second: You need to rebuild array by excludingthe object on found index*/
+    public void  removeItem(int todoId)
     {
-        for (int i = 0; i < size(); i++){
-            if (todoId != todos.get(i).getTodoId()){
-                todos.remove(i);
-            }
-        }
-        return todos;
+         if(todos.isEmpty())
+         {
+         System.out.println("LIst is empty,Please add task");
+         }
+         else
+             {
+
+                  Todo removetask=todos.remove(todoId-1);
+                  System.out.println("The tasks are removed");
+                  //}
     }
 
-
-
+    }
+    /*********************************To assign the task to a person****************************/
     public void assign(Todo task, Person user)
     {
         for (Todo t : todos)
         {
-            if (task.equals(t)) //TODO implements equals method inside the todo class
-            {
+            if (task.equals(t)) //TODO implements equals method inside the todo class{
                 t.setAssignee(user);
-            }
         }
     }
 
-    public void removeItem() {
+    public void updateDescription(String newDesc, int id)
+    {
+        Todo task = todos.get(id);
+        task.setDescription(newDesc);
     }
+
+
+
+
 }
