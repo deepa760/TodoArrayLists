@@ -14,7 +14,21 @@ The solution must achieve the following requirements:
 ‣ Display a collection of tasks that can be sorted both by date and project
 ‣ Support the ability to add, edit, mark as done, and remove tasks
 ‣ Support a text-based user interface
-‣ Load and save task list to file
+‣ Load and save task list to file.
+
+Basic steps for creating a Todo Project.
+Instructions
+1.Create a maven project
+a.Choose the “maven-archetype-quickstart”as the archetype.
+b.Groupid should be org.example.[groupname].
+c.Artefact id should be todo_it.
+d.When generated,navigate to“~/pom.xml”and make sure thattheprojectuses java 8+andJunit4.12+.
+e.Run your program and make sure it compiles.
+f.Push the empty project to GitHub
+
+
+After execution of the project,please find the screenshots of the implementation.
+
 
 FAQ
 Q1: How do I download the files?
