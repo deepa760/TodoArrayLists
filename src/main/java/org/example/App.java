@@ -33,11 +33,11 @@ public class App
                      System.out.println("*************************************************");
                      System.out.println("Press 1) Display the list");
                      System.out.println(  "2) Add the tasks ");
-                     System.out.println("3)Modify the tasks");
-                     System.out.println("4)Remove the task ");
-                     System.out.println("5)Sort by date  " );
-                     System.out.println ("6)Display the task DONE ");
-                     System.out.println("7)Quit");
+                     System.out.println("3) Update the tasks");
+                     System.out.println("4) Remove the task ");
+                     System.out.println("5) Sort by date  " );
+                     System.out.println ("6) Display the task DONE ");
+                     System.out.println("7)  Quit.........");
             int x = Integer.parseInt(scanner.nextLine());
             switch (x) {
                 case 1:
@@ -66,13 +66,7 @@ public class App
                 /********************To check if the task is done ensure its completed.**********************/
                 case  3:
                     System.out.println("Check and MOdify the task!!!!!!!!!!!!!!!!!!!!!!!");
-                    /*
-                    * 1. ask the user which task/todo he want to update
-                    *  2. what to update exactly (user, date, status)
-                    * */
-                   System.out.println("Enter the id which you want to update");
-                    String userId2 = scanner.nextLine();
-                   taskList.updateTask(Integer.parseInt(userId2));
+                    updateList();
                     showMenu();
                     break;
 
@@ -98,6 +92,33 @@ public class App
             }
         }
     }
+
+    private void updateList()
+    {
+        /*
+         * 1. ask the user which task/todo he want to update
+         *  2. what to update exactly (user, date, status)
+         * */
+        System.out.println("Enter the id which you want to update");
+        // TODO have a method that take care of exception
+        String userId2 = scanner.nextLine();
+        System.out.println("what to update, 1-name, 2-date, 3-status,...");
+        String whatToUpdate = scanner.nextLine();
+        int c = Integer.parseInt(whatToUpdate);
+        switch (c)
+        {
+            case 1:
+                System.out.println("Please type the new desc");
+                String newDesc = scanner.nextLine();
+                taskList.updateDescription(newDesc, Integer.parseInt(userId2));
+                break;
+                //cas2
+        }
+
+        //taskList.updateTask(Integer.parseInt(userId2));
+
+    }
+
     private void showMenu()
     {
         System.out.println(people.findAll());
