@@ -85,6 +85,7 @@ public class TodoItems {
         });
         return todos;
     }
+
     /*******************To remove the task id******************************/
 /*a.Functionality to remove object from array.(not nulling)
 First:you need to find the correct array index of the object.
@@ -97,50 +98,30 @@ Second: You need to rebuild array by excludingthe object on found index*/
          }
          else
              {
-                 //System.out.println("Please select task id");
-                  //Scanner sc=new Scanner(System.in);
-                  //int deltasknum=sc.nextInt();
-                  //for (int i = 0; i < t.size(); i++)
-                    //{
+
                   Todo removetask=todos.remove(todoId-1);
+                  System.out.println("The tasks are removed");
                   //}
     }
 
     }
-
     /*********************************To assign the task to a person****************************/
-        public void assign(Todo task, Person user)
-        {
-            for (Todo t : todos)
-            {
-                if (task.equals(t)) //TODO implements equals method inside the todo class
-                {
-                    t.setAssignee(user);
-                }
-            }
-        }
-
-
-    public ArrayList<Todo> updateTask(int todoId)
+    public void assign(Todo task, Person user)
     {
-    ArrayList <Integer> Int =new ArrayList<Integer>();
-              //Show all the records before editing.............
-             System.out.println("Total number present " + todos.size());
-             for (int i = 0,j=1; i < todos.size(); i++)
-             System.out.println(todos.get(i));
-             System.out.println("enter task id to update");
-              Scanner index =new Scanner(System.in);
-               int num=index.nextInt();
-               for(int i=0;i<todos.size();i++)
-               {
-             /* if ( num == todos.get(i))
-               {
-               System.out.println(num+" is  PRESENT at Index "+i);
-    }*/
-               if(todos.lastIndexOf(num)==-1)
-               System.out.println(num+" is NOT PRESENT");
-              }
-        return todos;
+        for (Todo t : todos)
+        {
+            if (task.equals(t)) //TODO implements equals method inside the todo class{
+                t.setAssignee(user);
+        }
     }
+
+    public void updateDescription(String newDesc, int id)
+    {
+        Todo task = todos.get(id);
+        task.setDescription(newDesc);
+    }
+
+
+
 
 }
