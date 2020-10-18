@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class TodoItems {
+    //private static ArrayList<Todo> todos;
     private ArrayList<Todo> todos = new ArrayList<>();
     public int size() {
         return todos.size();
@@ -32,9 +33,9 @@ public class TodoItems {
         todos.add(todo);
         return todo;
     }
-    public void clear(){
+   /* public static void clear(){
         todos = new ArrayList<>();
-    }
+    }*/
 
     /*****************************To check by Done status********************/
     public ArrayList<Todo> findByDoneStatus(boolean doneStatus)

@@ -7,18 +7,19 @@ c.Create needed getters and setters.
 d.Unit Test with Junit*/
 
 public class Todo {
+
+    private final int todoId;
+    private String description;
+    private  LocalDate date;
+    private Boolean done;
+    Person assignee;
     public Todo(int todoId, String description, LocalDate date) {
         this.todoId = todoId;
         this.description = description;
         this.date = date;
         this.done = false;
     }
-    //fields
-    private final int todoId;
-    private String description;
-    private  LocalDate date;
-    private Boolean done;
-    Person assignee;
+
     //Getters & Setters
     public int getTodoId() {
         return todoId;
@@ -48,5 +49,8 @@ public class Todo {
     }
 
     public boolean isDone() {
+        return true;
     }
+
 }
+
