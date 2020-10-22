@@ -57,10 +57,7 @@ d.When generated,navigate to“~/pom.xml”and make sure thattheprojectuses java
 e.Run your program and make sure it compiles.
 f.Push the empty project to GitHub
 
-
 After execution of the project,please find the screenshots of the implementation.
-
-
 FAQ
 Q1: How do I download the files?
 A: If you're new to GitHub and just want to download the complete package, hit the green button saying "Clone or download", choose the "Download ZIP" option, and you're good to go.
