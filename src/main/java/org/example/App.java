@@ -32,12 +32,12 @@ public class App
                      System.out.println(" Welcome, there  x task done, y task...");
                      System.out.println("*************************************************");
                      System.out.println("Press 1) Display the list");
-                     System.out.println(  "2) Add the tasks ");
+                     System.out.println( "2) Add the tasks ");
                      System.out.println("3) Update the tasks");
                      System.out.println("4) Remove the task ");
                      System.out.println("5) Sort by date  " );
-                     System.out.println ("6) Display the task DONE ");
-                     System.out.println("7)  Quit.........");
+                     //System.out.println ("6) Display the task DONE ");
+                     System.out.println("6)  Quit.........");
             int x = Integer.parseInt(scanner.nextLine());
             switch (x) {
                 case 1:
@@ -61,6 +61,7 @@ public class App
                     else {
                         Person user = people.findById(Integer.parseInt(userId));
                         taskList.assign(task, user);
+                        System.out.println("The task"+task +"is added to user "+user +"on date "+date );
                     }
                     break;
                 /********************To check if the task is done ensure its completed.**********************/
@@ -81,12 +82,12 @@ public class App
                     taskList.sortByDate();
                     showMenu();
                     break;
-                case 6:System.out.println("Display Tasks which are  done....................");
+                /*case 6:System.out.println("Display Tasks which are  done....................");
                     ArrayList<Todo> doneTasks = taskList.findByDoneStatus(true);
                     System.out.println(doneTasks);
                     showMenu();
-                       break;
-                case 7: System.out.println("We are coming out of the App!!!!!!!!!!!!Recheck once............");
+                       break;*/
+                case 6: System.out.println("We are coming out of the App!!!!!!!!!!!!Recheck once............");
                         quitTask();
                         break;
             }
@@ -102,7 +103,7 @@ public class App
         System.out.println("Enter the id which you want to update");
         // TODO have a method that take care of exception
         String userId2 = scanner.nextLine();
-        System.out.println("what to update, 1-name, 2-date, 3-status,...");
+        System.out.println("what to update, 1-id");
         String whatToUpdate = scanner.nextLine();
         int c = Integer.parseInt(whatToUpdate);
         switch (c)
@@ -112,7 +113,7 @@ public class App
                 String newDesc = scanner.nextLine();
                 taskList.updateDescription(newDesc, Integer.parseInt(userId2));
                 break;
-                //cas2
+
         }
 
         //taskList.updateTask(Integer.parseInt(userId2));

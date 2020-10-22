@@ -41,6 +41,17 @@ public class TodoItems {
     public ArrayList<Todo> findByDoneStatus(boolean doneStatus)
     {
         ArrayList<Todo> statusArray = new ArrayList<>();
+        if(statusArray.isEmpty())
+        {
+            System.out.println("Check if the task is done or not!!!");
+        }
+        else
+        {
+
+            //Todo statustask=todos.(doneStatus);
+            //System.out.println("The tasks are removed");
+            //}
+        }
         for (int i = 0; i < size(); i++){
             if (todos.get(i).getDone() == doneStatus) {
                 statusArray.add(todos.get(i) );
@@ -100,7 +111,7 @@ Second: You need to rebuild array by excludingthe object on found index*/
              {
 
                   Todo removetask=todos.remove(todoId-1);
-                  System.out.println("The tasks are removed");
+                  System.out.println("The task  removed::"+removetask);
                   //}
     }
 
