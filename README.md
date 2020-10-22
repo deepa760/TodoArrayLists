@@ -16,7 +16,6 @@ IntelliJ IDEA 2020.2.2
 Java 11.0.8
 .txt file for storing and retrieving data.
 tears
-UML diagrams
 Class Diagram
 Application Logo
 
