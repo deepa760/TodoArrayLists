@@ -3,9 +3,10 @@ package org.example.data;
 import org.example.model.Person;
 import java.util.ArrayList;
 
+
 public class People {
     //Have a private static Person arraydeclared and instantiated as empty and not null(new Person[0])
-    private ArrayList<Person> peopleList = new ArrayList<>();
+    private ArrayList<Person> peopleList;
     //Add a method publicint size()that return the length of the array.
     public int size() {
         return peopleList.size();
@@ -15,6 +16,19 @@ public class People {
         return peopleList;
     }
     //Add a method public Person findById(int personId)that return the person that has a mathing personId as the passed in parameter
+
+    public FileHandler fh = new FileHandler();
+
+    public People()
+    {
+        Object o = fh.readFile("people");
+        if (o == null)
+            peopleList = new ArrayList<>();
+        else
+            peopleList = (ArrayList<Person>) o;
+
+    }
+
     public  Person findById(int personId)
     {
         for (int i = 0; i < size(); i++){
@@ -32,4 +46,11 @@ public class People {
         peopleList = new ArrayList<>();
         PersonSequencer.reset();
     }
+
+    public void savePeople()
+    {
+        fh.writeFile(peopleList, "people");
+    }
+
+
 }

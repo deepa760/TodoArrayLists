@@ -8,7 +8,9 @@ package org.example.model;
  d.Unit test with Junit.
  e.Commitchanges*/
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
     //fields
     private final int personId;
     private String firstName;

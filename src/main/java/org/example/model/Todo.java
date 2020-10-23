@@ -1,4 +1,5 @@
 package org.example.model;
+import java.io.Serializable;
 import java.time.*;
 
 /*Create Todoclassin the model packagea.Required fields are todoId(int and final), description(String), done(boolean)and assignee(Person).
@@ -6,7 +7,7 @@ b.Make a constructor that take in todoId(int) and a description(String).
 c.Create needed getters and setters.
 d.Unit Test with Junit*/
 
-public class Todo {
+public class Todo implements Serializable {
 
     private final int todoId;
     private String description;
@@ -45,7 +46,7 @@ public class Todo {
     public LocalDate getDate() { return date; }
     public String toString()
     {
-        return todoId + " " + description + " " + assignee +" "+date;
+        return todoId + " " + description + " " + assignee +" "+date + " " + done;
     }
 
     public boolean isDone() {

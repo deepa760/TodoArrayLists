@@ -10,7 +10,24 @@ import java.util.Scanner;
 
 public class TodoItems {
     //private static ArrayList<Todo> todos;
-    private ArrayList<Todo> todos = new ArrayList<>();
+    private ArrayList<Todo> todos;
+
+    private FileHandler fh = new FileHandler();
+
+    public TodoItems()
+    {
+        Object o = fh.readFile("Todo");
+        if (o == null)
+            todos = new ArrayList<>();
+        else
+            todos = (ArrayList<Todo>) o;
+    }
+
+    public void saveTodoList()
+    {
+        fh.writeFile(todos, "Todo");
+    }
+
     public int size() {
         return todos.size();
     }
@@ -41,17 +58,6 @@ public class TodoItems {
     public ArrayList<Todo> findByDoneStatus(boolean doneStatus)
     {
         ArrayList<Todo> statusArray = new ArrayList<>();
-        if(statusArray.isEmpty())
-        {
-            System.out.println("Check if the task is done or not!!!");
-        }
-        else
-        {
-
-            //Todo statustask=todos.(doneStatus);
-            //System.out.println("The tasks are removed");
-            //}
-        }
         for (int i = 0; i < size(); i++){
             if (todos.get(i).getDone() == doneStatus) {
                 statusArray.add(todos.get(i) );
@@ -59,6 +65,7 @@ public class TodoItems {
         }
         return statusArray;
     }
+
     //TODO overridde the equals method inside the person class
     public ArrayList<Todo> findByAssignee(Person user)
     {

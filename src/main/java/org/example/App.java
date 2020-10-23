@@ -17,8 +17,7 @@ public class App
     private People people = new People();
     private TodoItems taskList = new TodoItems();
     private Scanner scanner = new Scanner(System.in);
-    public People getPeopleList(){return people;}
-    public TodoItems getTaskList(){return taskList;}
+
 
     public void run( )
     {
@@ -36,8 +35,8 @@ public class App
                      System.out.println("3) Update the tasks");
                      System.out.println("4) Remove the task ");
                      System.out.println("5) Sort by date  " );
-                     //System.out.println ("6) Display the task DONE ");
-                     System.out.println("6)  Quit.........");
+                     System.out.println ("6) Display the status DONE ");
+                     System.out.println("7)  Quit.........");
             int x = Integer.parseInt(scanner.nextLine());
             switch (x) {
                 case 1:
@@ -82,12 +81,12 @@ public class App
                     taskList.sortByDate();
                     showMenu();
                     break;
-                /*case 6:System.out.println("Display Tasks which are  done....................");
+                case 6:System.out.println("Display Tasks which are  done....................");
                     ArrayList<Todo> doneTasks = taskList.findByDoneStatus(true);
                     System.out.println(doneTasks);
                     showMenu();
-                       break;*/
-                case 6: System.out.println("We are coming out of the App!!!!!!!!!!!!Recheck once............");
+                       break;
+                case 7: System.out.println("We are coming out of the App!!!!!!!!!!!!Recheck once............");
                         quitTask();
                         break;
             }
@@ -128,6 +127,9 @@ public class App
 
     public void quitTask()
     {
+        //people.savePeople();
+        taskList.saveTodoList();
+
      System.out.println("Quitting..........Hej!!!!!!!!!!!!!!!!!");
      System.exit(0);
     }
